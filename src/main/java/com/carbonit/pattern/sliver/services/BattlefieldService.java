@@ -6,34 +6,29 @@ import com.carbonit.pattern.sliver.strategies.skills.SkillStrategy;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class BattlefieldService {
-    private final SliverFactory sliverFactory;
 
+
+    //A compléter
     public void displayBattlefield(List<SliverPower> sliverPowerTypes) {
         Map<String, Long> skillCount = countingStackableSkills(sliverPowerTypes);
         List<SkillStrategy> nonStackableCount = countingNonStackableSkills(sliverPowerTypes);
         System.out.println("Tous les slivoïdes ont : ");
         skillCount.forEach((skillName, count) -> System.out.println(". " + skillName + " x" + count));
-        nonStackableCount.forEach(skillName -> System.out.println(". " + skillName.applySkill()));
+        nonStackableCount.forEach(skillName -> System.out.println(". " + "nom de la compétence"));
     }
-
+    //A compléter
     private Map<String, Long> countingStackableSkills(List<SliverPower> sliverPowerTypes) {
-    return sliverPowerTypes.stream()
-            .map(sliverFactory::getSliverSkill)
-            .filter(SkillStrategy::isStackable)
-            .collect(Collectors.groupingBy(SkillStrategy::applySkill, Collectors.counting()));
+    return new HashMap<>();
     }
+    //A compléter
     private List<SkillStrategy> countingNonStackableSkills(List<SliverPower> sliverPowerTypes) {
-    return sliverPowerTypes.stream()
-            .map(sliverFactory::getSliverSkill)
-            .filter(skill -> !skill.isStackable())
-            .distinct()
-            .collect(Collectors.toList());
+    return new ArrayList<>();
     }
 }
