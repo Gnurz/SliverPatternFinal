@@ -18,7 +18,7 @@ public class BattlefieldService {
         System.out.println("Tous les slivoïdes ont : ");
         sliverPowerTypes.forEach(power -> {
             SkillStrategy skill = sliverFactory.getSliverSkill(power);
-            System.out.println(". " + skill.applySkill() + "\n");
+            System.out.println(". " + skill.applySkill());
         });
     }
 }
