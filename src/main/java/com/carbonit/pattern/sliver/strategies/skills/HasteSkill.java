@@ -4,16 +4,15 @@ import com.carbonit.pattern.sliver.model.SliverPower;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SkillNotFound implements SkillStrategy {
-
+public class HasteSkill implements SkillStrategy{
     @Override
     public String applySkill() {
-        return "La compétence est inconnue";
+        return "Célérité";
     }
 
     @Override
-    public boolean isApplicable(SliverPower type) {
-        return false;
+    public boolean isApplicable(SliverPower skill) {
+        return skill==SliverPower.HASTE;
     }
 
     @Override

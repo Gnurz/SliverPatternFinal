@@ -16,4 +16,9 @@ public class PowerOneAndThougnessOneBoost implements SkillStrategy {
     public boolean isApplicable(SliverPower skill) {
         return skill == SliverPower.STRENGTHONE_THOUGNESSONE_BOOST;
     }
+
+    @Override
+    public boolean isStackable() {
+        return true;
+    }
 }
